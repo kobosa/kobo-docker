@@ -1,0 +1,18 @@
+{
+    "app name": "Enketo Express for KOBO S.A.",
+    "linked form and data server": {
+        "name": "Kobo Business Forms",
+        "server url": ""
+    },
+    "logo": {
+        "source": "https://cdn.icon-icons.com/icons2/836/PNG/512/Google_icon-icons.com_66793.png",
+        "href": ""
+	},
+    "widgets": [
+        "note", "select-desktop", "select-mobile", "autocomplete", "geo", "textarea",
+        "table", "radio", "date", "time", "datetime", "compact", "file", "draw",
+        "likert", "distress", "horizontal", "image-view", "comment", "image-map", "date-mobile",
+        "../../../node_modules/enketo-image-customization-widget/image-customization",
+        "../../../node_modules/enketo-literacy-test-widget/literacywidget"
+    ]
+}

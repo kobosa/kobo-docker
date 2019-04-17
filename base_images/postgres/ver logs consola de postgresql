@@ -1,0 +1,7 @@
+tail -f /var/log/postgresql/postgresql-9.4-main.log
+
+psql -U postgres
+\l
+\c kobotoolbox
+\d
+kk
