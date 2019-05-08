@@ -111,7 +111,7 @@ kpi:
     - ./.vols/kobocat_media_uploads:/srv/src/kobocat/media
     # Dev: Share PyDev remote debugger source into container.
     #- ~/devel/liclipse/plugins/org.python.pydev_5.4.0.201611281405/pysrc:/srv/pydev_orig:ro
-    - ~/Escritorio/KOBO/kobo-docker/pysrc:/srv/pydev_orig:ro
+    - ./pysrc:/srv/pydev_orig:ro
     # Dev: Share your `.transifexrc` into the container.
     # - ./.transifexrc:/root/.transifexrc
   restart: on-failure

@@ -8,7 +8,7 @@
 #   from other devices on your network, use the IP address of Docker's network 
 #   interface. This can usually be obtained e.g with the following command:
 #   docker-compose run --rm kpi /sbin/ip route|awk '/default/ { print $3 }'
-HOST_ADDRESS=192.168.0.104
+HOST_ADDRESS=167.86.106.216
 # See "api key" here: https://github.com/kobotoolbox/enketo-express/tree/master/config#linked-form-and-data-server
 ENKETO_API_TOKEN=enketorules
 #ENKETO_API_TOKEN=903c1d6964529418b9279f8e07dff63fe795ab53
