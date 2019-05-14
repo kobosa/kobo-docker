@@ -1,5 +1,5 @@
 #######################
-# Mandatory variables #
+# Mandatory  variables #
 #######################
 
 # The address where your KoBo Toolbox instance can be reached; generally the IP address of your computer.
