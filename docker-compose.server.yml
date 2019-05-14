@@ -149,9 +149,9 @@ nginx:
     #- LETSENCRYPT_HOST=form.digitalexperiance.com,cat.digitalexperiance.com,enketo.digitalexperiance.com
     #- LETSENCRYPT_EMAIL=jjroman@espol.edu.ec
 
-  ports:
-    - 80:80
-    - 443:443
+  #ports:
+  #  - 80:80
+  #  - 443:443
   volumes:
       - ./.vols/static:/srv/www:ro
       # get the logs out of glusterfs!
