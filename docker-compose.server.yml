@@ -148,7 +148,8 @@ nginx:
     - VIRTUAL_HOST=form.digitalexperiance.com,cat.digitalexperiance.com,enketo.digitalexperiance.com
     - LETSENCRYPT_HOST=form.digitalexperiance.com,cat.digitalexperiance.com,enketo.digitalexperiance.com
     - LETSENCRYPT_EMAIL=jjroman@espol.edu.ec
-ports:
+
+  ports:
     - 80:80
     - 443:443
   volumes:
