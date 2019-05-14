@@ -76,7 +76,7 @@ kobocat:
     # Dev: Share your `.transifexrc` into the container.
     # - ./.transifexrc:/root/.transifexrc
   environment:
-    - ENKETO_PROTOCOL=https
+    - ENKETO_PROTOCOL=http
   restart: on-failure
   # NOTE: Workaround to force name resolution inside containers. If enabled, 
   #   customize with your actual subdomains+domain and server IP. Clients 
@@ -98,7 +98,7 @@ kpi:
     - ./envfiles/nginx.txt
     - ./envfiles/smtp.txt
   environment:
-    - SECURE_PROXY_SSL_HEADER=HTTP_X_FORWARDED_PROTO, https
+    - SECURE_PROXY_SSL_HEADER=HTTP_X_FORWARDED_PROTO, http
   links:
     - postgres
     - rabbit
