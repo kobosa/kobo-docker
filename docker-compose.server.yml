@@ -158,7 +158,7 @@ nginx:
       - ./log/nginx:/var/log/nginx
       - ./nginx/:/tmp/kobo_nginx/:ro
       - ./nginx/nginx_command.bash:/etc/service/nginx/run:ro
-      - ./secrets/:/tmp/kobo_toolbox_secrets/:ro
+      #- ./secrets/:/tmp/kobo_toolbox_secrets/:ro
   links:
     - kobocat
     - kpi
