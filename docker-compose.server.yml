@@ -146,8 +146,8 @@ nginx:
     - NGINX_CONFIG_FILE_NAME=nginx_site_https.conf
     - TEMPLATED_VAR_REFS=$${PUBLIC_DOMAIN_NAME} $${KOBOFORM_PUBLIC_SUBDOMAIN} $${KOBOCAT_PUBLIC_SUBDOMAIN} $${ENKETO_EXPRESS_PUBLIC_SUBDOMAIN}
     - VIRTUAL_HOST=form.digitalexperiance.com,cat.digitalexperiance.com,enketo.digitalexperiance.com
-    - LETSENCRYPT_HOST=form.digitalexperiance.com,cat.digitalexperiance.com,enketo.digitalexperiance.com
-    - LETSENCRYPT_EMAIL=jjroman@espol.edu.ec
+    #- LETSENCRYPT_HOST=form.digitalexperiance.com,cat.digitalexperiance.com,enketo.digitalexperiance.com
+    #- LETSENCRYPT_EMAIL=jjroman@espol.edu.ec
 
   ports:
     - 80:80
