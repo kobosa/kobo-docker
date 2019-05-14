@@ -208,4 +208,4 @@ redis_cache:
   # Map our "cache" Redis config into the container.
   volumes:
     - ./redis/redis-enketo-cache.conf:/etc/redis/redis.conf:ro
-  restart: on-failure
+restart: on-failure
