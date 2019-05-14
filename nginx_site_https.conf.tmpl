@@ -1,0 +1,83 @@
+# `envsubst` template.
+# Context: http
+
+charset     utf-8;
+
+# The ORDER of the servers is important!
+# Dumb, non-SNI clients will receive the certificate
+# for the first HTTPS server listed.
+
+# KoBoCAT HTTP.
+server {
+    listen      80;
+    server_name ${KOBOCAT_PUBLIC_SUBDOMAIN}.${PUBLIC_DOMAIN_NAME};
+
+    access_log  /var/log/nginx/kobocat.access.log;
+    error_log   /var/log/nginx/kobocat.error.log;
+
+    # max upload size
+    client_max_body_size 75M;
+
+    # Serve locations containing 'submission' or 'formList' via HTTP without
+    # further ado, since ODK Collect makes requests containing those terms and
+    # does not support any kind of redirection.
+    location ~ (submission|formList) {
+        # Proxy through uWSGI.
+        ${kobocat_include_uwsgi_pass}
+
+        # Debug proxying directly to container.
+        ${kobocat_include_proxy_pass}
+    }
+
+    location / {
+        # Proxy through uWSGI.
+        ${kobocat_include_uwsgi_pass}
+
+        # Debug proxying directly to container.
+        ${kobocat_include_proxy_pass}
+    }
+
+    ${kobocat_location_static}
+}
+
+# KoBoForm HTTP.
+server {
+    listen      80;
+    server_name ${KOBOFORM_PUBLIC_SUBDOMAIN}.${PUBLIC_DOMAIN_NAME};
+
+    access_log  /var/log/nginx/kpi.access.log;
+    error_log   /var/log/nginx/kpi.error.log;
+	
+	# max upload size
+    client_max_body_size 75M;
+	
+    ${kpi_location_static}
+
+    error_page 418 = /static/html/Offline.html;	
+	
+    location / {
+        # Proxy through uWSGI.
+        ${kpi_include_uwsgi_pass}
+
+        # Debug proxying directly to container.
+        ${kpi_include_proxy_pass}
+		}
+}
+
+# Enketo Express HTTP.
+server {
+    listen       80;
+    server_name ${ENKETO_EXPRESS_PUBLIC_SUBDOMAIN}.${PUBLIC_DOMAIN_NAME};
+
+    client_max_body_size 100M;
+
+    location / {
+        proxy_pass  http://enketo_express:8005/;
+        proxy_redirect off;
+        proxy_set_header Host $http_host;
+        proxy_set_header X-Real-IP $remote_addr ;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for ;
+        proxy_set_header X-Forwarded-Proto http ;		
+    }	
+}
+
